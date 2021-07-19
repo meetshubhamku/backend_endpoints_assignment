@@ -7,7 +7,6 @@ const {
 const {
   addProduct,
   getAllProduct,
-  orderProduct,
 } = require("../controllers/productController");
 const { getUserById } = require("../controllers/userController");
 
@@ -24,12 +23,5 @@ router.post(
 );
 
 router.get("/product/all/:user_id", isSignedIn, isAuthenticated, getAllProduct);
-
-router.post(
-  "/product/order/:user_id",
-  isSignedIn,
-  isAuthenticated,
-  orderProduct
-);
 
 module.exports = router;

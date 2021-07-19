@@ -24,7 +24,6 @@ router.post(
   "/signin",
   [
     body("email", "Please enter a valid email").isEmail(),
-    body("role", "Role must be of type numeric").isNumeric(),
     body("password", "Password must contain minimum 6 characters").isLength({
       min: 6,
     }),

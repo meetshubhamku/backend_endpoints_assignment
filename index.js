@@ -5,6 +5,8 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const productRoutes = require("./routes/productRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+
 const app = express();
 require("dotenv").config();
 
@@ -14,6 +16,7 @@ app.use(cookieParser());
 app.use(cors());
 app.use("/api", authRoutes);
 app.use("/api", productRoutes);
+app.use("/api", orderRoutes);
 
 //Default route
 app.get("/", function (req, res) {

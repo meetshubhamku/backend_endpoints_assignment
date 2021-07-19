@@ -29,21 +29,3 @@ exports.getAllProduct = (req, res) => {
     }
   });
 };
-
-exports.orderProduct = (req, res) => {
-  const user_id = req.profile.user_id;
-  let { product_id } = req.body;
-  product_id = JSON.stringify(product_id);
-
-  const query = `insert into orderedproduct (user_id,product_id) values(${user_id},${product_id})`;
-
-  dbConnection.query(query, function (error, results) {
-    if (error) {
-      return res.json(error);
-    } else {
-      return res.json({
-        result: results,
-      });
-    }
-  });
-};

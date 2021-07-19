@@ -2,6 +2,7 @@
   "dbTables": {
     "users": "create table users (user_id int PRIMARY KEY AUTO_INCREMENT, user_name varchar(255) not null, user_email varchar(255) not null UNIQUE, user_role SMALLINT not null, user_password varchar(255) not null, user_salt varchar(255) not null)",
     "product": "create table product (product_id int PRIMARY KEY AUTO_INCREMENT, product_name varchar(255) not null, product_price decimal NOT null, product_description varchar(5000) not null)",
-    "orderedproduct": "create table ordered_product (order_id int AUTO_INCREMENT PRIMARY KEY, user_id int references users(user_id), product_id int references product(product_id))"
+    "orders": "create table orders (order_no int PRIMARY KEY AUTO_INCREMENT, user_id int references users(user_id), created_at date not null DEFAULT CURRENT_DATE)",
+    "ordered_products": "create table ordered_products (order_no int references orders(order_no), product_id int references product(product_id))"
   }
 }
